@@ -1,53 +1,55 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import '../assets/scss/main.scss'
+import Header from './Header'
+import Menu from './Menu'
+import Contact from './Contact'
+import Footer from './Footer'
 
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
+class Layout extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isMenuVisible: false,
+            loading: 'is-loading'
         }
-      }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </>
-    )}
-  />
-)
+        this.handleToggleMenu = this.handleToggleMenu.bind(this)
+    }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    componentDidMount () {
+        this.timeoutId = setTimeout(() => {
+            this.setState({loading: ''});
+        }, 100);
+    }
+
+    componentWillUnmount () {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
+    }
+
+    handleToggleMenu() {
+        this.setState({
+            isMenuVisible: !this.state.isMenuVisible
+        })
+    }
+
+    render() {
+        const { children } = this.props
+
+        return (
+            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
+                <div id="wrapper">
+                    <Header onToggleMenu={this.handleToggleMenu} />
+                    {children}
+                    <Contact />
+                    <Footer />
+                </div>
+                <Menu onToggleMenu={this.handleToggleMenu} />
+            </div>
+        )
+    }
 }
 
 export default Layout
