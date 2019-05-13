@@ -4,11 +4,11 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Banner from '../components/Banner'
 
-import pic01 from '../assets/images/pic01.jpg'
-import pic02 from '../assets/images/pic02.jpg'
-import pic03 from '../assets/images/pic03.jpg'
-import pic04 from '../assets/images/pic04.jpg'
-import pic05 from '../assets/images/pic05.jpg'
+import pic01 from '../assets/images/moja.png'
+import pic02 from '../assets/images/carton.png'
+import pic03 from '../assets/images/gasu.png'
+import pic04 from '../assets/images/sharibou.png'
+import pic05 from '../assets/images/mojalabbk.png'
 import pic06 from '../assets/images/pic06.jpg'
 
 class HomeIndex extends React.Component {
@@ -56,7 +56,7 @@ class HomeIndex extends React.Component {
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
-                                <h3>Karton's Logs</h3>
+                                <h3>Carton's Logs</h3>
                                 <p>カートンのブログ</p>
                             </header>
                             <Link to="/landing" className="link primary"></Link>
