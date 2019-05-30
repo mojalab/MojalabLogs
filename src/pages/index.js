@@ -8,8 +8,6 @@ import pic01 from '../assets/images/moja.png'
 import pic02 from '../assets/images/carton.png'
 import pic03 from '../assets/images/gasu.png'
 import pic04 from '../assets/images/sharibou.png'
-import pic05 from '../assets/images/mojalabbk.png'
-import pic06 from '../assets/images/pic06.jpg'
 
 class HomeIndex extends React.Component {
     render() {
@@ -28,7 +26,7 @@ class HomeIndex extends React.Component {
                 <Banner />
 
                 <div id="main">
-                    <section id="two">
+                    <section id="one">
                         <div className="inner">
                             <header className="major">
                                 <h2>もじゃラボ動画</h2>
@@ -46,34 +44,34 @@ class HomeIndex extends React.Component {
                             </ul>
                         </div>
                     </section>
-                    <section id="one" className="tiles">
+                    <section id="two" className="tiles">
                         <article style={{backgroundImage: `url(${pic01})`}}>
                             <header className="major">
                                 <h3>Moja's Logs</h3>
                                 <p>もじゃのブログ</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/logs" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
                                 <h3>Carton's Logs</h3>
                                 <p>カートンのブログ</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/logs" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic03})`}}>
                             <header className="major">
                                 <h3>Gasu's Logs</h3>
                                 <p>ガースーのブログ</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/logs" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic04})`}}>
                             <header className="major">
                                 <h3>Sharibou's Logs</h3>
                                 <p>しゃり坊のブログ</p>
                             </header>
-                            <Link to="/landing" className="link primary"></Link>
+                            <Link to="/logs" className="link primary"></Link>
                         </article>
                     </section>
                 </div>

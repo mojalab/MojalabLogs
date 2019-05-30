@@ -9,7 +9,7 @@ const Banner = (props) => (
             <div className="content">
                 <p>もじゃラボメンバーの活動報告</p>
                 <ul className="actions">
-                    <li><a href="#one" className="button next scrolly">Go to Logs</a></li>
+                    <li><a href="#two" className="button next scrolly">Go to Logs</a></li>
                 </ul>
             </div>
         </div>

@@ -2,10 +2,19 @@ module.exports = {
   siteMetadata: {
     title: "Mojalab Logs",
     author: "Gasu",
-    description: "A Gatsby.js V2 Starter based on Forty by HTML5 UP"
+    description: "A Gatsby.js V2 Starter based on Forty by HTML5 UP",
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/markdown`,
+        name: "markdown-pages",
+      },
+    },
+    `gatsby-transformer-remark`,
+    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -18,6 +27,7 @@ module.exports = {
         icon: 'src/assets/images/mojalab.png', // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-offline'
   ],
