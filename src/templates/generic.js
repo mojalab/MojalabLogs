@@ -19,6 +19,12 @@ const Generic = (props) => {
                     <div className="inner">
                         <header className="major">
                             <h1>{frontmatter.title}</h1>
+                            {
+                              frontmatter.tags &&
+                                <h1>
+                                  {frontmatter.tags.map(tag => ' ' + tag + ' ')}
+                                </h1>
+                            }
                         </header>
                         <span className="image main">
                             <Img fluid={frontmatter.cover.childImageSharp.fluid} />
@@ -45,7 +51,7 @@ export const query = graphql`
         tags
         cover {
           childImageSharp {
-            fluid(maxWidth: 2000) {
+            fluid(maxWidth: 200) {
               ...GatsbyImageSharpFluid
             }
           }
