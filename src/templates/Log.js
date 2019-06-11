@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 
-const Generic = (props) => {
+const Log = (props) => {
     const { markdownRemark } = props.data
     const { html, frontmatter } = markdownRemark
     return (
@@ -38,7 +38,7 @@ const Generic = (props) => {
     )
 }
 
-export default Generic
+export default Log
 
 export const query = graphql`
   query($path: String!) {

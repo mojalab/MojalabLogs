@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const Banner = (props) => (
     <section id="banner" className="major">
@@ -9,7 +10,7 @@ const Banner = (props) => (
             <div className="content">
                 <p>もじゃラボメンバーの活動報告</p>
                 <ul className="actions">
-                    <li><a href="#two" className="button next scrolly">Go to Logs</a></li>
+                    <Link to="/logs" className="button next scrolly">Go to Logs</Link>
                 </ul>
             </div>
         </div>

@@ -50,28 +50,28 @@ class HomeIndex extends React.Component {
                                 <h3>Moja's Logs</h3>
                                 <p>もじゃのブログ</p>
                             </header>
-                            <Link to="/logs" className="link primary"></Link>
+                            <Link to="/logs/moja" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
                                 <h3>Carton's Logs</h3>
                                 <p>カートンのブログ</p>
                             </header>
-                            <Link to="/logs" className="link primary"></Link>
+                            <Link to="/logs/carton" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic03})`}}>
                             <header className="major">
                                 <h3>Gasu's Logs</h3>
                                 <p>ガースーのブログ</p>
                             </header>
-                            <Link to="/logs" className="link primary"></Link>
+                            <Link to="/logs/gasu" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic04})`}}>
                             <header className="major">
                                 <h3>Sharibou's Logs</h3>
                                 <p>しゃり坊のブログ</p>
                             </header>
-                            <Link to="/logs" className="link primary"></Link>
+                            <Link to="/logs/sharibou" className="link primary"></Link>
                         </article>
                     </section>
                 </div>

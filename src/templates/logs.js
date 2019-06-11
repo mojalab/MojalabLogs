@@ -5,21 +5,41 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
 
+const getDisplayTitle = (prefix) => {
+  switch (prefix) {
+    case "ALL":
+      return "Mojalab"
+    case "moja":
+      return "Moja's"
+    case "carton":
+      return "Carton's"
+    case "gasu":
+      return "Gasu's"
+    case "sharibou":
+      return "Sharibou's"
+    default:
+      return ""
+  }
+}
+
 const Logs = (props) => (
     <Layout>
         <Helmet>
-            <title>Logs</title>
+            <title>{getDisplayTitle(props.pageContext.prefix)} Logs</title>
             <meta name="description" content="Logs Page" />
         </Helmet>
 
-        <BannerLanding />
+        <BannerLanding
+          title={getDisplayTitle(props.pageContext.prefix)}
+          prefix={props.pageContext.prefix}
+        />
 
         <div id="main">
             <section className="spotlights">
-                {props.data.allMarkdownRemark.edges.map(({ node }) => (
+                {props.pageContext.logs.map(({ node }) => (
                     <section key={node.id}>
                         <Link to={node.frontmatter.path} className="image">
-                            <Img fluid={node.frontmatter.cover.childImageSharp.fluid} />
+                            {/*<Img fluid={node.frontmatter.cover.childImageSharp.fluid} />*/}
                         </Link>
                         <div className="content">
                             <div className="inner">
@@ -41,32 +61,32 @@ const Logs = (props) => (
 )
 
 export default Logs
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      limit: 6
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 75)
-          frontmatter {
-            title
-            path
-            tags
-            date(formatString: "YYYY-MM-DD")
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 2000) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+//
+// export const query = graphql`
+//   query {
+//     allMarkdownRemark(
+//       limit: 6
+//       sort: { order: DESC, fields: [frontmatter___date] }
+//     ) {
+//       edges {
+//         node {
+//           id
+//           excerpt(pruneLength: 75)
+//           frontmatter {
+//             title
+//             path
+//             tags
+//             date(formatString: "YYYY-MM-DD")
+//             cover {
+//               childImageSharp {
+//                 fluid(maxWidth: 2000) {
+//                   ...GatsbyImageSharpFluid
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

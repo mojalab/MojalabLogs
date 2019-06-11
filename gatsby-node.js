@@ -3,8 +3,8 @@ const path = require("path")
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blog = path.resolve(`src/templates/generic.js`)
-  const logs = path.resolve(`src/templates/logs.js`)
+  const logTemplate = path.resolve(`src/templates/Log.js`)
+  const logsTemplate = path.resolve(`src/templates/Logs.js`)
 
   return graphql(`
     {
@@ -15,7 +15,11 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             frontmatter {
+              title
+              date
               path
+              author
+              tags
             }
           }
         }
@@ -26,18 +30,36 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    createPage({
-        path: '/logs',
-        component: logs,
-        context: {},
-    });
+    const posts = result.data.allMarkdownRemark.edges
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    // const authors = new Set(posts.map(({ node }) => (node.frontmatter.author)))
+    const authors = ["moja", "carton", "gasu", "syaribou"]
+    authors.forEach(author => (
+      createPage({
+        path: `/logs/${author}`,
+        component: logsTemplate,
+        context: {
+          prefix: author,
+          logs: posts.filter(({ node }) => (node.frontmatter.author === author)),
+        },
+      })
+    ))
+
+    createPage({
+      path: `/logs`,
+      component: logsTemplate,
+      context: {
+        prefix: `ALL`,
+        logs: posts,
+      }
+    })
+
+    posts.forEach(({ node }) => (
       createPage({
         path: node.frontmatter.path,
-        component: blog,
+        component: logTemplate,
         context: {}, // additional data can be passed via context
       })
-    })
+    ))
   })
 }
