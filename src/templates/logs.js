@@ -7,8 +7,6 @@ import BannerLanding from '../components/BannerLanding'
 
 const getDisplayTitle = (prefix) => {
   switch (prefix) {
-    case "ALL":
-      return "Mojalab"
     case "moja":
       return "Moja's"
     case "carton":
@@ -18,7 +16,7 @@ const getDisplayTitle = (prefix) => {
     case "sharibou":
       return "Sharibou's"
     default:
-      return ""
+      return "Mojalab"
   }
 }
 

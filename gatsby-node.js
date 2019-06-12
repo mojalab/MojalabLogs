@@ -32,6 +32,24 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
+    let tags = []
+    posts.forEach(({ node }) => {
+      node.frontmatter.tags.forEach(tag => (
+        tags = [...tags, tag]
+      ))
+    })
+    tags = new Set(tags)
+    tags.forEach(tag => (
+      createPage({
+        path: `/logs/${tag}`,
+        component: logsTemplate,
+        context: {
+          prefix: tag,
+          logs: posts.filter(({ node }) => (node.frontmatter.tags.indexOf(tag) >= 0)),
+        },
+      })
+    ))
+
     // const authors = new Set(posts.map(({ node }) => (node.frontmatter.author)))
     const authors = ["moja", "carton", "gasu", "syaribou"]
     authors.forEach(author => (

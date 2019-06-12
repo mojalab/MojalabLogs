@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
@@ -19,11 +19,19 @@ const Log = (props) => {
                     <div className="inner">
                         <header className="major">
                             <h1>{frontmatter.title}</h1>
-                            {
-                              frontmatter.tags &&
-                                <h1>
-                                  {frontmatter.tags.map(tag => ' ' + tag + ' ')}
-                                </h1>
+                            {frontmatter.tags &&
+                                <ul className="actions">
+                                    {
+                                        frontmatter.tags.map(tag =>
+                                            <Link
+                                              to={"/logs/" + tag}
+                                              className="button special small"
+                                            >
+                                                {tag}
+                                            </Link>
+                                        )
+                                    }
+                                </ul>
                             }
                         </header>
                         <span className="image main">

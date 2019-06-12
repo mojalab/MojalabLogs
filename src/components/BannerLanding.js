@@ -2,8 +2,6 @@ import React from 'react'
 
 const getDisplay = (prefix) => {
   switch (prefix) {
-    case "ALL":
-      return "メンバー"
     case "moja":
       return "もじゃ"
     case "carton":
@@ -13,7 +11,7 @@ const getDisplay = (prefix) => {
     case "sharibou":
       return "しゃり坊"
     default:
-      return ""
+      return "メンバー"
   }
 }
 
