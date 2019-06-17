@@ -4,21 +4,7 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
-
-const getDisplayTitle = (prefix) => {
-  switch (prefix) {
-    case "moja":
-      return "Moja's"
-    case "carton":
-      return "Carton's"
-    case "gasu":
-      return "Gasu's"
-    case "sharibou":
-      return "Sharibou's"
-    default:
-      return "Mojalab"
-  }
-}
+import { getDisplayTitle } from '../utils'
 
 const Logs = (props) => (
     <Layout>
@@ -43,6 +29,7 @@ const Logs = (props) => (
                             <div className="inner">
                                 <header className="major">
                                     <h3>{node.frontmatter.title}</h3>
+                                    <h4>{node.frontmatter.date}</h4>
                                 </header>
                                 {/*node.excerpt*/}
                                 <ul className="actions">

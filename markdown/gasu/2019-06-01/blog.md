@@ -1,10 +1,10 @@
 ---
-path: "/gasu/biginingblog"
+path: "/gasu/20190601"
 date: "2019-06-01"
 author: 'gasu'
 tags: ['gatsby','blog']
 title: "ブログスタート"
-cover: "./gasu.png"
+cover: "../gasu.png"
 ---
 ブログ遂にスタート！！
 

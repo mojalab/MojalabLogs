@@ -1,19 +1,5 @@
 import React from 'react'
-
-const getDisplay = (prefix) => {
-  switch (prefix) {
-    case "moja":
-      return "もじゃ"
-    case "carton":
-      return "カートン"
-    case "gasu":
-      return "ガースー"
-    case "sharibou":
-      return "しゃり坊"
-    default:
-      return "メンバー"
-  }
-}
+import { getDisplayAuthor } from '../utils'
 
 const BannerLanding = (props) => (
     <section id="banner" className="style2">
@@ -22,7 +8,7 @@ const BannerLanding = (props) => (
                 <h1>{props.title} Logs</h1>
             </header>
             <div className="content">
-                <p>{getDisplay(props.prefix)}の日々の惰性を書き殴ったもの</p>
+                <p>{getDisplayAuthor(props.prefix)}の日々の惰性を書き殴ったもの</p>
             </div>
         </div>
     </section>

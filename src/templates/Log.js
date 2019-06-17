@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import { getDisplayAuthor } from '../utils'
 
 const Log = (props) => {
     const { markdownRemark } = props.data
@@ -33,6 +34,10 @@ const Log = (props) => {
                                     }
                                 </ul>
                             }
+                            <ul className="actions">
+                              <li>著者 : {getDisplayAuthor(frontmatter.author)}</li>
+                              <li>公開日 : {frontmatter.date}</li>
+                            </ul>
                         </header>
                         <span className="image main">
                             <Img fluid={frontmatter.cover.childImageSharp.fluid} />
@@ -55,11 +60,12 @@ export const query = graphql`
       frontmatter {
         path
         date
+        author
         title
         tags
         cover {
           childImageSharp {
-            fluid(maxWidth: 200) {
+            fluid(maxWidth: 1000, maxHeight: 200) {
               ...GatsbyImageSharpFluid
             }
           }
