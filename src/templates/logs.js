@@ -6,24 +6,30 @@ import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
 import { getDisplayTitle } from '../utils'
 
-const Logs = (props) => (
+const getCover = (allLogs, path) => (
+  allLogs.filter(({ node }) => node.frontmatter.path === path)
+    .map(({ node }) => node.frontmatter.cover.childImageSharp.fluid)[0]
+)
+
+
+const Logs = (props) => {
+  const prefix = props.pageContext.prefix
+  const allLogs = props.data.allMarkdownRemark.edges
+  return (
     <Layout>
         <Helmet>
-            <title>{getDisplayTitle(props.pageContext.prefix)} Logs</title>
+            <title>{getDisplayTitle(prefix)} Logs</title>
             <meta name="description" content="Logs Page" />
         </Helmet>
 
-        <BannerLanding
-          title={getDisplayTitle(props.pageContext.prefix)}
-          prefix={props.pageContext.prefix}
-        />
+        <BannerLanding prefix={prefix}/>
 
         <div id="main">
             <section className="spotlights">
                 {props.pageContext.logs.map(({ node }) => (
                     <section key={node.id}>
                         <Link to={node.frontmatter.path} className="image">
-                            {/*<Img fluid={node.frontmatter.cover.childImageSharp.fluid} />*/}
+                            <Img fluid={getCover(allLogs, node.frontmatter.path)} />
                         </Link>
                         <div className="content">
                             <div className="inner">
@@ -41,37 +47,37 @@ const Logs = (props) => (
                 ))}
             </section>
         </div>
-
     </Layout>
-)
+  )
+}
 
 export default Logs
-//
-// export const query = graphql`
-//   query {
-//     allMarkdownRemark(
-//       limit: 6
-//       sort: { order: DESC, fields: [frontmatter___date] }
-//     ) {
-//       edges {
-//         node {
-//           id
-//           excerpt(pruneLength: 75)
-//           frontmatter {
-//             title
-//             path
-//             tags
-//             date(formatString: "YYYY-MM-DD")
-//             cover {
-//               childImageSharp {
-//                 fluid(maxWidth: 2000) {
-//                   ...GatsbyImageSharpFluid
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 75)
+          frontmatter {
+            title
+            path
+            tags
+            date(formatString: "YYYY-MM-DD")
+            cover {
+              childImageSharp {
+                fluid(maxWidth:1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

@@ -4,7 +4,7 @@ date: "2019-06-18"
 author: 'gasu'
 tags: ['ロードバイク','骨折']
 title: "ロードバイク納車と初乗りの悲劇"
-cover: "../gasu.png"
+cover: "./cover.jpg"
 ---
 約２週間ぶりの更新となります（汗
 
