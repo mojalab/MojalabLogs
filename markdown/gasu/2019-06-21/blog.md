@@ -1,5 +1,5 @@
 ---
-path: "/gasu/20190619"
+path: "/gasu/20190621"
 date: "2019-06-21"
 author: 'gasu'
 tags: ['ポケモンカード','個人輸入']
