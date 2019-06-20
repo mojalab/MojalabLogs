@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
-import { getDisplayTitle } from '../utils'
+import { getDisplayAuthor, getDisplayTitle } from '../utils'
 
 const getCover = (allLogs, path) => (
   allLogs.filter(({ node }) => node.frontmatter.path === path)
@@ -35,7 +35,10 @@ const Logs = (props) => {
                             <div className="inner">
                                 <header className="major">
                                     <h3>{node.frontmatter.title}</h3>
-                                    <h4>{node.frontmatter.date}</h4>
+                                    <ul className="actions">
+                                        <li><h4>著者 : {getDisplayAuthor(node.frontmatter.author)}</h4></li>
+                                        <li><h4>公開日 : {node.frontmatter.date}</h4></li>
+                                    </ul>
                                 </header>
                                 {/*node.excerpt*/}
                                 <ul className="actions">
