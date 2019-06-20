@@ -22,8 +22,11 @@
 
 			> :first-child {
 				margin-bottom: 0;
-				width: 100%;
-				font-size: 5vw;
+				width: calc(100% + 1.5em);
+
+				&.title {
+					font-size: 5vw;
+				}
 
 				&:after {
 					content: '';

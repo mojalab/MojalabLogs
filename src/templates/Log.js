@@ -19,7 +19,7 @@ const Log = (props) => {
                 <section id="one">
                     <div className="inner">
                         <header className="major">
-                            <h1>{frontmatter.title}</h1>
+                            <div className="title">{frontmatter.title}</div>
                             {frontmatter.tags &&
                                 <ul className="actions">
                                     {
