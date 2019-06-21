@@ -16,7 +16,7 @@ const Log = (props) => {
                 <title>{frontmatter.title}</title>
                 <meta name="description" content="Generic Page" />
 
-                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@moja_labo" />
                 <meta property="og:url" content={path} />
                 <meta property="og:title" content={frontmatter.title} />
