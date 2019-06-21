@@ -27,7 +27,7 @@ const Logs = (props) => {
         <div id="main">
             <section className="spotlights">
                 {props.pageContext.logs.map(({ node }) => (
-                    <section key={node.id}>
+                    <section key={node.frontmatter.path}>
                         <Link to={node.frontmatter.path} className="image">
                             <Img fluid={getCover(allLogs, node.frontmatter.path)} />
                         </Link>

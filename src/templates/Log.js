@@ -9,6 +9,7 @@ const Log = (props) => {
     const { markdownRemark } = props.data
     const { html, frontmatter } = markdownRemark
     const path = "https://www.mojalab.site/" + frontmatter.path
+    const imagePath = "https://www.mojalab.site" + frontmatter.cover.childImageSharp.fluid.src
     return (
         <Layout>
             <Helmet>
@@ -20,7 +21,7 @@ const Log = (props) => {
                 <meta property="og:url" content={path} />
                 <meta property="og:title" content={frontmatter.title} />
                 // <meta property="og:description" content="In the early days, Twitter grew so quickly that it was almost impossible to add new features because engineers spent their time trying to keep the rocket ship from stalling." />
-                <meta property="og:image" content={frontmatter.cover.childImageSharp.fluid} />
+                <meta property="og:image" content={imagePath} />
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </Helmet>
 
@@ -34,6 +35,7 @@ const Log = (props) => {
                                     {
                                         frontmatter.tags.map(tag =>
                                             <Link
+                                              key={tag}
                                               to={"/logs/" + tag}
                                               className="button special small"
                                             >
@@ -50,7 +52,7 @@ const Log = (props) => {
                             <div>
                               <a
                                 href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                                class="twitter-share-button"
+                                className="twitter-share-button"
                                 data-show-count="false"
                                 data-size="large"
                               />
