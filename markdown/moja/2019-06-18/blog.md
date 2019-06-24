@@ -2,9 +2,9 @@
 path: "/moja/blog20190618"
 date: "2019-06-18"
 author: 'moja'
-tags: ['もじゃ','企画会議']
-title: "もじゃもじゃブログ企画会議"
-cover: "./rice.jpg"
+tags: ['レトルトごはん']
+title: "もじゃもじゃブログ企画プレゼン"
+cover: "./presentation.jpg"
 ---
 遅ればせながら、私もじゃもブログ始めましたー！
 
