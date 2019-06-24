@@ -4,7 +4,7 @@ date: "2019-06-18"
 author: 'moja'
 tags: ['レトルトごはん']
 title: "もじゃもじゃブログ企画プレゼン"
-cover: "./presentation.png"
+cover: "./presentation.jpg"
 ---
 遅ればせながら、私もじゃもブログ始めましたー！
 
